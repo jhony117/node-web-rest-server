@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { TodosController } from "./todos/controller";
 import { TodoRoutes } from "./todos/routes";
+import { TododatasourceImpl } from "../infrastructure/datasource/todo.datasource.impl";
+import { TodoRepositoryImpl } from "../infrastructure/repositories/todo.repository.impl";
 
 
 export class AppRoutes {
@@ -8,8 +10,7 @@ export class AppRoutes {
 
     static get routes(): Router {
         const router = Router();
-        const todoController = new TodosController();
-
+        
         //? .use -> middleware -> funcion que se ejecuta cuneda la ruta pasa por aqui
         router.use('/api/todos', TodoRoutes.routes );
  
